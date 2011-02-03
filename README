@@ -1,0 +1,9 @@
+A plugin for the Play Framework to integrate Entities with the Solr Search Server. The plugin was initially inspired by the 'dynamic field'-approach of the Spring Roo Solr Addon.
+
+Current state: 
+
+ - experimental
+ - testcases + sample-app exists, needs real-world usage and feedback, though.
+
+
+License: Apache 2 license

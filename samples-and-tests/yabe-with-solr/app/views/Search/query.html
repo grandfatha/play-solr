@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+
+#{if resp && !resp.getResults().isEmpty()}
+	
+	<h3>Results:</h3>
+	
+	#{list items:resp.getResults(), as:'doc'}
+		
+		<div class="post">
+			
+			<h2 class="post-title">
+				<a href="@{Application.show(doc.getFieldValue("model.id_l"))}">
+				${doc.getFieldValue("post.title_s")}
+				</a>
+			</h2>
+
+			<div style="color:white;">
+				%{
+					def content = doc.getFieldValue("post.content_s")
+					if(content.length() > 100){
+						out << content.substring(0,100);
+					}
+					else{
+						out << content
+					}
+				}%
+				
+			</div>
+ 			
+		</div>
+		
+	#{/list}
+	
+#{/if}
+#{else}
+	There were no results :(
+#{/else}
+
+<div>
+	<h3>Debug</h3>
+	<div style="padding-left:20px;">
+		${resp ?: 'no information'}
+	</div>
+</div>
+
+
+
